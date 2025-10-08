@@ -1,7 +1,8 @@
-# 🌟 Landing Page - Portfólio de Projetos | Laura Ataide 🌟
+# 🌟 Landing Page 🌟
+## Portfólio de Projetos | Laura Ataide 👾
 
-![Status](https://img.shields.io/badge/status-em--desenvolvimento-yellow.svg?style=for-the-badge&logoColor=white)
-![License](https://img.shields.io/badge/license-MIT-blue.svg?style=for-the-badge&logoColor=white)
+![Status](https://img.shields.io/badge/status-em--desenvolvimento-blue?style=for-the-badge&logo=githubactions&logoColor=white)
+![License](https://img.shields.io/badge/license-MIT-informational?style=for-the-badge&logo=tga&logoColor=white)
 
 Uma landing page pessoal e responsiva, criada para ser meu portfólio central, apresentando os projetos que desenvolvi e minhas habilidades como Desenvolvedora Full Stack em Formação.
 
@@ -47,6 +48,11 @@ Você pode acessar a versão mais atual da landing page através do link abaixo:
 
 ---
 
+### 📜 Licença
+
+Este projeto está sob a licença MIT. Veja o arquivo LICENSE para mais detalhes.
+
+---
 ### 💻 Tecnologias Utilizadas
 
 As seguintes ferramentas e tecnologias foram utilizadas na construção do projeto:
@@ -56,6 +62,12 @@ As seguintes ferramentas e tecnologias foram utilizadas na construção do proje
 ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
 
 ---
+
+### Contato
+
+  <a href="https://www.linkedin.com/in/lauraataide91/" target="_blank"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white"></a>
+  <a href="mailto:lauramartinsataide@gmail.com"><img src="https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white"></a>
+ 
 
 ### ⚙️ Como Rodar o Projeto
 

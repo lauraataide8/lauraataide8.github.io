@@ -20,6 +20,10 @@
     text-decoration: none;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
     font-family: var(--fonte-corpo);
     color: var(--cor-texto);
@@ -51,18 +55,13 @@ body {
     color: var(--cor-destaque);
 }
 
-/* --- EFEITO ANIMADO PARA O LOGO NO CABEÇALHO --- */
 .cabecalho-logo:hover {
     background: linear-gradient( -45deg, var(--cor-destaque), var(--cor-destaque-secundario), #a855f7, var(--cor-destaque) );
     background-size: 400% 400%;
-    
     -webkit-background-clip: text;
     background-clip: text;
-
     -webkit-text-fill-color: transparent;
-    
     animation: gradientAnimation 8s ease infinite;
-    
 }
 
 .cabecalho-menu {
@@ -161,7 +160,7 @@ body {
 .conteudo-principal-imagem img:hover{
     border-radius: 5% 40% 5% 40% / 40% 5% 40% 5%;
     transition: border-radius 0.6s ease;
-    border-shadow: 0 0 50px rgba(151, 241, 38, 0.6), 0 0 80px rgba(151, 241, 38, 0.4);
+    box-shadow: 0 0 50px rgba(151, 241, 38, 0.6), 0 0 80px rgba(151, 241, 38, 0.4);
 }
 
 /* --- SEÇÕES SECUNDÁRIAS --- */
@@ -194,48 +193,110 @@ body {
     margin-bottom: 15px;
 }
 
-.projetos-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 50px; 
-    max-width: 1400px;
-    width: 100%; 
+/* --- ESTILOS PARA O CARROSSEL DE PROJETOS --- */
+.meu-swiper {
+  width: 100%;
+  max-width: 1200px;
+  padding: 20px 0 50px 0;
+}
+
+.swiper-slide {
+  display: flex;
+  justify-content: center;
+  height: auto;
+  padding-bottom: 10px; /* Espaço para sombra do card */
 }
 
 .projeto-card {
-    background-color: var(--cor-card);
-    border: 1px solid var(--cor-separador);
-    border-radius: 10px;
-    padding: 20px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    text-align: left;
+  width: 100%;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--cor-card);
+  border: 1px solid var(--cor-separador);
+  border-radius: 10px;
+  padding: 20px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  color: inherit;
+  cursor: default;
 }
 
 .projeto-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 8px 25px rgba(151, 241, 38, 0.1);
+    transform: translateY(-8px);
+    box-shadow: 0 8px 25px rgba(151, 241, 38, 0.15);
+}
+
+.projeto-imagem-wrapper {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  overflow: hidden;
 }
 
 .projeto-imagem-wrapper img {
-    width: 100%;
-    aspect-ratio: 16 / 9;
-    object-fit: cover;
-    border-radius: 5px;
-    margin-bottom: 15px;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .projeto-card h4 {
-    font-family: var(--fonte-titulos);
-    font-size: 1.5em;
-    color: var(--cor-destaque-secundario);
-    margin-bottom: 10px;
+  font-family: var(--fonte-titulos);
+  font-size: 1.5em;
+  color: var(--cor-destaque-secundario);
+  margin-bottom: 10px;
 }
 
+.projeto-card p {
+    flex-grow: 1;
+    margin-bottom: 20px;
+}
+
+.github-btn {
+    display: inline-block;
+    align-self: flex-start;
+    background-color: transparent;
+    color: var(--cor-destaque);
+    border: 2px solid var(--cor-destaque);
+    border-radius: 5px;
+    padding: 8px 16px;
+    font-weight: 600;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.github-btn:hover {
+    background-color: var(--cor-destaque);
+    color: var(--cor-fundo-inicio);
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+  color: var(--cor-destaque);
+  transform: scale(0.8);
+  transition: color 0.3s ease;
+}
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+    color: var(--cor-destaque-secundario);
+}
+
+.swiper-pagination-bullet {
+  background-color: var(--cor-texto);
+  opacity: 0.5;
+  transition: background-color 0.3s ease, opacity 0.3s ease;
+}
+
+.swiper-pagination-bullet-active {
+  background-color: var(--cor-destaque);
+  opacity: 1;
+}
+
+/* --- HABILIDADES --- */
 .habilidades-lista {
     list-style: none;
     display: grid;
-    grid-template-columns: repeat(auto-fit, 150px);
-    justify-content: space-evenly;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    justify-content: center;
     gap: 25px;
     width: 100%;
     max-width: 1200px;
@@ -272,40 +333,115 @@ body {
     font-weight: 600;
 }
 
-.lista-contatos {
+
+/* --- RODAPÉ (VERSÃO FINAL COMPACTA) --- */
+.rodape {
+    background-color: var(--cor-fundo-fim);
+    padding: 30px 5% 15px 5%; /* ESPAÇAMENTO FINAL */
+    border-top: 2px solid var(--cor-destaque);
+    text-align: left;
+}
+
+.rodape-conteudo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto 25px auto; /* Margem inferior final */
+}
+
+.rodape-coluna {
+    min-width: 300px;
+}
+
+.rodape-info {
+    flex-basis: 55%;
+    flex-grow: 1;
+}
+
+.titulo-animado {
+    font-family: var(--fonte-titulos);
+    font-size: 2.8em;
+    font-weight: 700;
+    margin-top: 0;
+    margin-bottom: 20px;
+    
+    background: linear-gradient( -45deg, var(--cor-destaque), var(--cor-destaque-secundario), #a855f7, var(--cor-destaque) );
+    background-size: 400% 400%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradientAnimation 15s ease infinite;
+}
+
+.rodape-info p {
+    font-size: 1.1em;
+    line-height: 1.7;
+    color: var(--cor-texto);
+    max-width: 450px;
+}
+
+.rodape-cta {
+    display: inline-block;
+    background-color: var(--cor-destaque);
+    color: var(--cor-fundo-inicio);
+    font-family: var(--fonte-titulos);
+    font-size: 1.1em;
+    font-weight: 700;
+    padding: 12px 24px;
+    border-radius: 5px;
+    margin-top: 30px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.rodape-cta:hover {
+    transform: scale(1.05) translateY(-3px);
+    box-shadow: 0 8px 20px rgba(151, 241, 38, 0.15);
+}
+
+.rodape-links {
+    flex-grow: 1;
+    flex-basis: 35%;
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    gap: 20px;
-    font-size: 1.2em;
-    font-family: var(--fonte-corpo);
+    align-items: flex-end;
 }
 
-.lista-contatos p, .lista-contatos a {
+.rodape-contato-lista-icones {
     display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+}
+
+.rodape-contato-lista-icones a {
+    display: inline-flex;
     align-items: center;
+    justify-content: flex-end;
     gap: 15px;
     color: var(--cor-texto);
-}
-
-.lista-contatos a {
+    font-size: 1.1em;
+    font-weight: 600;
     transition: color 0.3s ease;
 }
 
-.lista-contatos a:hover {
+.rodape-contato-lista-icones a:hover {
+    color: var(--cor-destaque-secundario);
+}
+
+.rodape-contato-lista-icones a i {
+    font-size: 1.5em;
     color: var(--cor-destaque);
 }
 
-.lista-contatos i {
-    color: var(--cor-destaque-secundario);
-    font-size: 1.3em;
-}
-
-/* --- RODAPÉ --- */
-.rodape {
-    padding: 32px 5%;
-    border-top: 1px solid var(--cor-separador);
+.rodape-copyright {
     text-align: center;
+    padding-top: 25px; /* Espaçamento final */
+    border-top: 1px solid var(--cor-separador);
+    color: var(--cor-texto);
+    opacity: 0.7;
 }
 
 /* --- ÍCONE FLUTUANTE WHATSAPP --- */
@@ -331,7 +467,6 @@ body {
 .whatsapp-flutuante:hover {
     transform: scale(1.1);
 }
-
 
 /* --- ANIMAÇÕES --- */
 @keyframes fadeInUp {
@@ -373,7 +508,18 @@ body {
        max-width: 300px;
        margin-bottom: 30px;
     }
-    .lista-contatos { align-items: center; }
+}
+
+@media (max-width: 850px) {
+    .rodape-conteudo {
+        align-items: flex-start;
+    }
+    .rodape-links {
+        align-items: flex-start;
+    }
+    .rodape-contato-lista-icones a {
+        justify-content: flex-start;
+    }
 }
 
 @media (max-width: 800px) {
@@ -386,4 +532,11 @@ body {
     .cabecalho { flex-direction: column; gap: 15px; }
     .cabecalho-menu { gap: 20px; }
     .conteudo-principal-titulo span { font-size: 2.2em; }
+}
+@media (max-width: 400px) {
+    .conteudo-principal-titulo span { font-size: 1.8em; }
+    .conteudo-principal-subtitulo { font-size: 1em; }
+    .rodape-conteudo { flex-direction: column; align-items: center; text-align: center; }
+    .rodape-info, .rodape-links { flex-basis: auto; align-items: center; }
+    .rodape-contato-lista-icones a { justify-content: center; }
 }

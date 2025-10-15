@@ -24,7 +24,7 @@ Este projeto é a minha página de apresentação profissional. O objetivo é te
 ### 🖼️ Preview
 
 ![Preview da Landing Page](./assets/preview.png)
-*(Nota: Certifique-se de que uma imagem chamada `preview.png` existe na pasta `assets` para que esta imagem apareça.)*
+
 
 ---
 

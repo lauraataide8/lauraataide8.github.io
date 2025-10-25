@@ -23,7 +23,7 @@ Este projeto é a minha página de apresentação profissional. O objetivo é te
 
 ### 🖼️ Preview
 
-![Preview da Landing Page](./assets/preview.png)
+![Preview da Landing Page](https://raw.githubusercontent.com/lauraataide8/lauraataide8.github.io/main/assets/preview.png)
 
 
 ---
@@ -63,12 +63,13 @@ cd lauraataide8.github.io
 
 # 3. Abra o arquivo 'index.html' no seu navegador de preferência
 #    (Pode ser feito clicando duas vezes no arquivo)
+
 ````
 
-### 📜 Licença
-<p align="left">Este projeto está sob a licença MIT. Clique no "badge" no topo da página para ver o arquivo LICENSE para mais detalhes.</P>
+📜 Licença
 
-### 💬 Contato
-<p align="left">
-  <a href="https://www.linkedin.com/in/lauraataide91/" target="_blank"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white"></a>
-<a href="mailto:lauramartinsataide@gmail.com"><img src="https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white"></a> </p>
+<div align="left"> Este projeto está sob a licença MIT. Clique no "badge" no topo da página para ver o arquivo LICENSE para mais detalhes. </div>
+
+💬 Contato
+
+<div align="left"> <a href="https://www.linkedin.com/in/lauraataide91/" target="_blank"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white"></a> &nbsp; <a href="mailto:lauramartinsataide@gmail.com"><img src="https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white"></a> </div>

@@ -1,85 +1,46 @@
-# 🌟 Landing Page 🌟
-## Portfólio de Projetos | Laura Ataide 👾
+# 💻 Software Engineering| Portfolio Laura Ataíde
+### [Acesse o projeto online aqui](https://lauraataide8.github.io)
 
-![Status](https://img.shields.io/badge/status-em--desenvolvimento-blue?style=for-the-badge&logo=githubactions&logoColor=white)
-![License](https://img.shields.io/badge/license-MIT-informational?style=for-the-badge&logo=tga&logoColor=white)
-
-Uma landing page pessoal e responsiva, criada para ser meu portfólio central, apresentando os projetos que desenvolvi e minhas habilidades como Desenvolvedora Full Stack em Formação.
+Este repositório contém o código-fonte do meu portfólio profissional. O projeto foi desenvolvido sob a ótica da **Engenharia de Software**, priorizando performance, acessibilidade e design responsivo.
 
 ---
 
-### 👁️‍🗨️ Visão Geral
-
-Este projeto é a minha página de apresentação profissional. O objetivo é ter um espaço centralizado para demonstrar minhas competências, listar as tecnologias com as quais trabalho e, principalmente, exibir os projetos em que trabalhei, tanto os concluídos quanto os que estão em andamento. Uma vitrine digital para o meu trabalho!
-
----
-
-### 🚧 Status do Projeto
-
-> ✨ **Projeto em elaboração e aperfeiçoamento contínuo.** ✨
->
-> Esta landing page está em desenvolvimento ativo. Novas funcionalidades, projetos e melhorias visuais serão adicionados aos poucos, conforme avanço nos meus estudos e na construção de novas aplicações. Acompanhe a evolução!
+### 🛠️ Tecnologias Utilizadas
+<p align="left">
+  <a href="https://skillicons.dev">
+    <img src="https://skillicons.dev/icons?i=html,css,js,figma,git,vscode,github&theme=dark" />
+  </a>
+</p>
 
 ---
 
-### 🚀 Demonstração (Ao Vivo)
-
-Você pode acessar a versão mais atual da landing page através do link abaixo:
-
-**[➡️ Acessar a Landing Page](https://lauraataide8.github.io/landing.page/)**
-
----
-
-### 🖼️ Preview
-
-
-![Preview da Landing Page](./assets/preview.png)
+### 🚀 Diferenciais Técnicos
+* **Performance & SPA:** Estrutura otimizada para carregamento rápido.
+* **Mobile First:** Interface 100% responsiva para todos os dispositivos.
+* **SEO & Semântica:** HTML5 estruturado para melhor indexação e acessibilidade.
+* **UX Design:** Prototipagem de alta fidelidade realizada no Figma.
 
 ---
 
-### 💡 Funcionalidades
-
--   [x] Design Responsivo (se adapta a celulares e desktops)
--   [x] Seção "Sobre Mim" com link para o perfil principal do GitHub
--   [x] Lista de Habilidades e Tecnologias
--   [ ] Galeria de Projetos com links e descrições detalhadas
--   [ ] Formulário de Contato funcional
--   [x] Integração com redes sociais
-
----
-
-### 📜 Licença
-
-Este projeto está sob a licença MIT. Veja o arquivo LICENSE para mais detalhes.
-
----
-### 💻 Tecnologias Utilizadas
-
-As seguintes ferramentas e tecnologias foram utilizadas na construção do projeto:
-
-![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
-![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
-![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
-
----
-
-### Contato
-
-  <a href="https://www.linkedin.com/in/lauraataide91/" target="_blank"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white"></a>
-  <a href="mailto:lauramartinsataide@gmail.com"><img src="https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white"></a>
- 
-
-### ⚙️ Como Rodar o Projeto
-
-Este é um projeto estático, então você pode rodá-lo localmente com facilidade.
-
+### 📂 Estrutura do Projeto
 ```bash
-# 1. Clone este repositório
-git clone [https://github.com/lauraataide8/landing.page.git](https://github.com/lauraataide8/landing.page.git)
+├── assets/         # Recursos visuais (imagens e ícones)
+├── css/            # Estilização modularizada
+├── js/             # Lógica de interatividade
+└── index.html      # Estrutura principal da aplicação
+```
 
-# 2. Navegue até a pasta do projeto
-cd landing.page
+⚙️ Execução Local
+```bash
+# 1. Clone o repositório
+git clone [https://github.com/lauraataide8/lauraataide8.github.io.git](https://github.com/lauraataide8/lauraataide8.github.io.git)
 
-# 3. Abra o arquivo 'index.html' no seu navegador de preferência
-#    Você pode fazer isso clicando duas vezes no arquivo ou usando o comando:
-#    open index.html (no macOS) ou start index.html (no Windows)
+# 2. Navegue até a pasta
+cd lauraataide8.github.io
+
+# 3. Abra o index.html no navegador ou use o Live Server no VS Code
+```
+
+### 📫 Contato e Networking
+
+<p align="left"><a href="https://www.linkedin.com/in/lauraataide91/" target="_blank"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=flat-square&logo=linkedin&logoColor=white" alt="LinkedIn"></a>&nbsp;<a href="mailto:lauramartinsataide@gmail.com"><img src="https://img.shields.io/badge/Email-D14836?style=flat-square&logo=gmail&logoColor=white" alt="Email"></a></p>

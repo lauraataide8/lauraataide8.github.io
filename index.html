@@ -4,11 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>Laura Ataide | Backend Software Engineer</title>
-    
     <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -32,12 +29,16 @@
     <main class="conteudo">
         <section id="home" class="conteudo-principal">
             <div class="conteudo-principal-escrito">
+                <div class="badges-topo">
+                    <span class="badge"><i class="fas fa-terminal"></i> Especialista Backend</span>
+                    <span class="badge"><i class="fas fa-cloud"></i> Azure Certified</span>
+                </div>
                 <h1 class="conteudo-principal-titulo">
-                    Backend <span>Software Engineer</span>
+                    Laura Ataide <span>Software Engineer</span>
                 </h1>
-                <h2 class="conteudo-principal-subtitulo">
+                
+                <h2 class="conteudo-principal-subtitulo"><span>Back-End</span>
                     Arquitetando sistemas robustos com <strong>Java (Spring Boot)</strong> e <strong>Node.js</strong>. 
-                    Especialista em unir desenvolvimento de alta performance com resiliência em nuvem <strong>Azure</strong>.
                 </h2>
                 <div class="cta-container">
                     <a href="https://github.com/lauraataide8" class="conteudo-principal-cta" target="_blank">
@@ -47,27 +48,17 @@
             </div>
 
             <div class="conteudo-principal-imagem">
-                <img src="assets/laura.png" alt="Laura Ataide">
+                <div class="foto-container">
+                    <img src="assets/laura.png" alt="Laura Ataide">
+                </div>
             </div>
         </section>
 
         <section id="sobre" class="conteudo-secundario">
             <h3 class="conteudo-secundario-titulo">Sobre Mim</h3>
-            <div class="sobre-grid">
-                <div class="sobre-texto">
-                    <p>Minha trajetória na tecnologia começou no "coração" da operação: <strong>Infraestrutura e Suporte</strong>. Essa base sólida me conferiu uma visão 360º que diferencia meu trabalho — eu não apenas escrevo código, eu entendo como o sistema se comporta sob carga, na rede e no servidor.</p>
-                    <p>Atualmente, como <strong>Backend Software Engineer</strong>, foco na construção de APIs RESTful escaláveis utilizando o ecossistema <strong>Java e Node.js</strong>. Sou movida por desafios que envolvem Clean Code, POO e arquiteturas preparadas para <strong>Cloud Azure</strong>.</p>
-                </div>
-                <div class="sobre-cards">
-                    <div class="card-status">
-                        <i class="fas fa-terminal"></i>
-                        <span>Especialista Backend</span>
-                    </div>
-                    <div class="card-status">
-                        <i class="fas fa-cloud"></i>
-                        <span>Azure Certified</span>
-                    </div>
-                </div>
+            <div class="sobre-container-simples">
+                <p>Minha trajetória na tecnologia começou no "coração" da operação: <strong>Infraestrutura e Suporte</strong>. Essa base sólida me conferiu uma visão 360º que diferencia meu trabalho — eu entendo como o código se comporta no servidor e na rede.</p>
+                <p>Atualmente, foco na construção de APIs RESTful escaláveis utilizando o ecossistema <strong>Java e Node.js</strong>, sempre com foco em Clean Code e arquiteturas Cloud-Native.</p>
             </div>
         </section>
 
@@ -77,55 +68,42 @@
                 <div class="habilidade-card">
                     <i class="fab fa-java"></i>
                     <h4>Java & Spring</h4>
-                    <p>Desenvolvimento de APIs robustas e escaláveis.</p>
                 </div>
                 <div class="habilidade-card">
                     <i class="fab fa-node-js"></i>
                     <h4>Node.js</h4>
-                    <p>Criação de microsserviços ágeis e assíncronos.</p>
                 </div>
                 <div class="habilidade-card">
                     <i class="fas fa-database"></i>
                     <h4>MySQL</h4>
-                    <p>Modelagem de dados e otimização de queries.</p>
                 </div>
                 <div class="habilidade-card">
                     <i class="fas fa-cloud"></i>
                     <h4>Azure Cloud</h4>
-                    <p>Arquitetura, deploy e resiliência em nuvem.</p>
                 </div>
             </div>
         </section>
     </main>
 
     <footer id="contato" class="rodape">
-        <div class="rodape-wrapper">
-            <div class="rodape-info">
-                <h3 class="titulo-animado">CONTATO</h3>
-                <p><i class="fas fa-envelope"></i> lauramartinsataide@gmail.com</p>
-                <p><i class="fas fa-phone"></i> (11) 99949-8492</p>
+        <div class="rodape-grid">
+            <div class="rodape-col">
+                <h3 class="rodape-titulo">Contato</h3>
+                <p>lauramartinsataide@gmail.com</p>
+                <p>(11) 99949-8492</p>
                 <a href="mailto:lauramartinsataide@gmail.com" class="btn-email">Enviar E-mail</a>
             </div>
-            <div class="rodape-links">
+            <div class="rodape-col links-sociais">
                 <a href="https://www.linkedin.com/in/lauraataide91/" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
                 <a href="https://github.com/lauraataide8" target="_blank"><i class="fab fa-github"></i> GitHub</a>
             </div>
         </div>
-        <div class="rodape-copyright">
-            &copy; 2026 Laura Ataide - Backend Software Engineer.
-        </div>
+        <p class="copyright">© 2026 Laura Ataide - Software Engineer.</p>
     </footer>
 
     <a href="https://wa.me/5511999498492" class="whatsapp-flutuante" target="_blank">
         <i class="fab fa-whatsapp"></i>
     </a>
 
-    <script>
-        // Fecha o menu hambúrguer ao clicar em um link
-        const menuToggle = document.getElementById('menu-toggle');
-        document.querySelectorAll('.cabecalho-menu-item').forEach(link => {
-            link.addEventListener('click', () => { menuToggle.checked = false; });
-        });
-    </script>
 </body>
 </html>

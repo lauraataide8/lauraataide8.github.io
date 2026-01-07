@@ -4,8 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>Laura Ataide | Backend Software Engineer</title>
+    
     <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -13,7 +16,7 @@
     <header class="cabecalho">
         <div class="cabecalho-logo">Laura<span>Ataide</span></div>
         
-        <input type="checkbox" id="menu-toggle" hidden>
+        <input type="checkbox" id="menu-toggle" class="menu-checkbox" hidden>
         <label for="menu-toggle" class="menu-icon">
             <i class="fas fa-bars"></i>
         </label>
@@ -29,16 +32,12 @@
     <main class="conteudo">
         <section id="home" class="conteudo-principal">
             <div class="conteudo-principal-escrito">
-                <div class="badges-topo">
-                    <span class="badge"><i class="fas fa-terminal"></i> Especialista Backend</span>
-                    <span class="badge"><i class="fas fa-cloud"></i> Azure Certified</span>
-                </div>
                 <h1 class="conteudo-principal-titulo">
-                    Laura Ataide <span>Software Engineer</span>
+                    BACKEND <span>SOFTWARE ENGINEER</span>
                 </h1>
-                
-                <h2 class="conteudo-principal-subtitulo"><span>Back-End</span>
-                    Arquitetando sistemas robustos com <strong>Java (Spring Boot)</strong> e <strong>Node.js</strong>. 
+                <h2 class="conteudo-principal-subtitulo">
+                    Especialista em sistemas resilientes com <strong>Java, Node.js e Azure</strong>. 
+                    Unindo alta performance de desenvolvimento com sólida visão de infraestrutura.
                 </h2>
                 <div class="cta-container">
                     <a href="https://github.com/lauraataide8" class="conteudo-principal-cta" target="_blank">
@@ -48,7 +47,7 @@
             </div>
 
             <div class="conteudo-principal-imagem">
-                <div class="foto-container">
+                <div class="foto-handdrawn">
                     <img src="assets/laura.png" alt="Laura Ataide">
                 </div>
             </div>
@@ -56,54 +55,65 @@
 
         <section id="sobre" class="conteudo-secundario">
             <h3 class="conteudo-secundario-titulo">Sobre Mim</h3>
-            <div class="sobre-container-simples">
-                <p>Minha trajetória na tecnologia começou no "coração" da operação: <strong>Infraestrutura e Suporte</strong>. Essa base sólida me conferiu uma visão 360º que diferencia meu trabalho — eu entendo como o código se comporta no servidor e na rede.</p>
-                <p>Atualmente, foco na construção de APIs RESTful escaláveis utilizando o ecossistema <strong>Java e Node.js</strong>, sempre com foco em Clean Code e arquiteturas Cloud-Native.</p>
+            <div class="sobre-grid">
+                <div class="sobre-texto">
+                    <p>Minha trajetória na tecnologia começou no "coração" da operação: <strong>Infraestrutura e Suporte</strong>. Essa base sólida me conferiu uma visão 360° que diferencia meu trabalho — eu não apenas escrevo código, eu entendo como o sistema se comporta sob carga, na rede e no servidor.</p>
+                </div>
+                <div class="sobre-texto">
+                    <p>Atualmente, como <strong>Backend Software Engineer</strong>, foco na construção de APIs RESTful escaláveis utilizando o ecossistema <strong>Java e Node.js</strong>. Sou movida por desafios que envolvem Clean Code, POO e arquiteturas preparadas para <strong>Cloud Azure</strong>.</p>
+                </div>
+            </div>
+            
+            <div class="badges-container">
+                <div class="badge"><i class="fas fa-terminal"></i> Especialista Backend</div>
+                <div class="badge"><i class="fas fa-cloud"></i> Azure Certified</div>
             </div>
         </section>
 
         <section id="habilidades" class="conteudo-secundario">
             <h3 class="conteudo-secundario-titulo">Especialidades Técnicas</h3>
-            <div class="habilidades-container">
-                <div class="habilidade-card">
-                    <i class="fab fa-java"></i>
-                    <h4>Java & Spring</h4>
-                </div>
-                <div class="habilidade-card">
-                    <i class="fab fa-node-js"></i>
-                    <h4>Node.js</h4>
-                </div>
-                <div class="habilidade-card">
-                    <i class="fas fa-database"></i>
-                    <h4>MySQL</h4>
-                </div>
-                <div class="habilidade-card">
-                    <i class="fas fa-cloud"></i>
-                    <h4>Azure Cloud</h4>
-                </div>
+            <div class="habilidades-grid">
+                <div class="habilidade-card"><i class="fab fa-java"></i><p>Java & Spring Boot</p></div>
+                <div class="habilidade-card"><i class="fab fa-node-js"></i><p>Node.js</p></div>
+                <div class="habilidade-card"><i class="fas fa-database"></i><p>MySQL & PostgreSQL</p></div>
+                <div class="habilidade-card"><i class="fas fa-cloud"></i><p>Azure Cloud</p></div>
+                <div class="habilidade-card"><i class="fas fa-network-wired"></i><p>Infra & Suporte</p></div>
+                <div class="habilidade-card"><i class="fab fa-bootstrap"></i><p>Bootstrap</p></div>
+                <div class="habilidade-card"><i class="fab fa-docker"></i><p>Docker & Containers</p></div>
+                <div class="habilidade-card"><i class="fas fa-project-diagram"></i><p>Arquitetura de APIs</p></div>
             </div>
         </section>
     </main>
 
     <footer id="contato" class="rodape">
-        <div class="rodape-grid">
-            <div class="rodape-col">
-                <h3 class="rodape-titulo">Contato</h3>
-                <p>lauramartinsataide@gmail.com</p>
-                <p>(11) 99949-8492</p>
+        <div class="rodape-container">
+            <div class="contato-info">
+                <h3 class="titulo-contato-neon">CONTATO</h3>
+                <p><i class="fas fa-envelope"></i> lauramartinsataide@gmail.com</p>
+                <p><i class="fas fa-phone"></i> (11) 99949-8492</p>
                 <a href="mailto:lauramartinsataide@gmail.com" class="btn-email">Enviar E-mail</a>
             </div>
-            <div class="rodape-col links-sociais">
+            <div class="sociais-col">
                 <a href="https://www.linkedin.com/in/lauraataide91/" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
                 <a href="https://github.com/lauraataide8" target="_blank"><i class="fab fa-github"></i> GitHub</a>
             </div>
         </div>
-        <p class="copyright">© 2026 Laura Ataide - Software Engineer.</p>
+        <div class="final-footer">
+            <p>© 2026 Laura Ataide - Backend Software Engineer.</p>
+        </div>
     </footer>
 
-    <a href="https://wa.me/5511999498492" class="whatsapp-flutuante" target="_blank">
+    <a href="https://wa.me/5511999498492" class="whatsapp-btn" target="_blank">
         <i class="fab fa-whatsapp"></i>
     </a>
+
+    <script>
+        // Fecha o menu ao clicar em um link (Mobile)
+        const toggle = document.getElementById('menu-toggle');
+        document.querySelectorAll('.cabecalho-menu-item').forEach(link => {
+            link.addEventListener('click', () => { toggle.checked = false; });
+        });
+    </script>
 
 </body>
 </html>

@@ -12,13 +12,17 @@
     --fonte-corpo: 'Poppins', sans-serif;
 }
 
+/* --- RESET & GERAL --- */
 * { margin: 0; padding: 0; box-sizing: border-box; text-decoration: none; }
 html { scroll-behavior: smooth; }
+
 body {
     font-family: var(--fonte-corpo);
     color: var(--cor-texto);
     background: linear-gradient(68.15deg, var(--cor-fundo-inicio) 16.62%, var(--cor-fundo-fim) 85.61%);
-    overflow-x: hidden; /* Evita o scroll lateral no celular */
+    /* ISSO AQUI É CRUCIAL PARA NÃO QUEBRAR NO CELULAR: */
+    overflow-x: hidden; 
+    width: 100%;
 }
 
 /* --- CABEÇALHO --- */
@@ -29,19 +33,22 @@ body {
     padding: 20px 5%;
     position: sticky;
     top: 0;
-    background: rgba(13, 12, 29, 0.9);
+    background: rgba(13, 12, 29, 0.95); /* Um pouco mais escuro para leitura */
     backdrop-filter: blur(10px);
     z-index: 1000;
+    width: 100%; /* Garante que não ultrapasse a tela */
 }
-.cabecalho-logo { font-family: var(--fonte-titulos); font-size: 1.6em; color: var(--cor-texto-forte); }
+.cabecalho-logo { font-family: var(--fonte-titulos); font-size: 1.6em; color: var(--cor-texto-forte); white-space: nowrap; }
 .cabecalho-logo span { color: var(--cor-destaque); }
-.cabecalho-menu { display: flex; gap: 20px; }
-.cabecalho-menu-item { color: var(--cor-texto); font-weight: 600; font-size: 0.9rem; transition: 0.3s; }
+.cabecalho-menu { display: flex; gap: 25px; }
+.cabecalho-menu-item { color: var(--cor-texto); font-weight: 600; transition: 0.3s; font-size: 1rem; }
+.cabecalho-menu-item:hover { color: var(--cor-destaque); text-shadow: 0 0 10px var(--cor-destaque); }
 
 /* --- HERO SECTION --- */
 .conteudo { padding: 0 5%; }
 .conteudo-principal { display: flex; align-items: center; justify-content: space-between; padding: 60px 0; min-height: 85vh; gap: 40px; }
 .conteudo-principal-escrito { display: flex; flex-direction: column; gap: 30px; flex: 1; }
+
 .conteudo-principal-titulo { 
     font-family: var(--fonte-corpo); 
     text-transform: uppercase; 
@@ -52,7 +59,7 @@ body {
 }
 .conteudo-principal-titulo span {
     font-family: var(--fonte-titulos);
-    font-size: clamp(2rem, 8vw, 4rem);
+    font-size: clamp(2.5em, 5vw, 4em); /* Ajuste dinâmico do tamanho */
     display: block;
     background: linear-gradient(-45deg, var(--cor-destaque), var(--cor-destaque-secundario), #a855f7, var(--cor-destaque));
     background-size: 400% 400%;
@@ -62,6 +69,7 @@ body {
     animation: gradientAnimation 10s ease infinite;
 }
 
+.cta-container { display: flex; flex-direction: column; gap: 40px; margin-top: 15px; }
 .conteudo-principal-cta {
     align-self: flex-start;
     background: var(--cor-destaque);
@@ -72,6 +80,9 @@ body {
     border-radius: 5px;
     transition: 0.3s;
 }
+.conteudo-principal-cta:hover { transform: scale(1.05); box-shadow: 0 0 20px var(--cor-destaque); }
+
+.snake-container { opacity: 0.8; margin-top: 10px; max-width: 100%; overflow: hidden; }
 
 .conteudo-principal-imagem img {
     max-width: 100%;
@@ -82,160 +93,217 @@ body {
     animation: floatAnimation 6s ease-in-out infinite;
 }
 
-/* --- SOBRE MIM (DESKTOP) --- */
+/* --- SOBRE MIM --- */
 .conteudo-secundario { padding: 80px 0; border-top: 1px solid var(--cor-separador); }
-.conteudo-secundario-titulo { font-family: var(--fonte-titulos); font-size: 3.0em; color: var(--cor-destaque); text-align: center; margin-bottom: 40px; }
-.sobre-texto { column-count: 2; column-gap: 50px; max-width: 1100px; margin: 0 auto; text-align: justify; line-height: 1.8; font-size: 1.6rem; }
+.conteudo-secundario-titulo { font-family: var(--fonte-titulos); font-size: 3.0em; color: var(--cor-destaque); text-align: center; margin-bottom: 50px; }
+.sobre-texto { 
+    column-count: 2; 
+    column-gap: 50px; 
+    max-width: 1100px; 
+    margin: 0 auto; 
+    text-align: justify; 
+    line-height: 1.9; 
+    font-size: 1.60rem; 
+}
+
+/* --- PROJETOS --- */
+.projeto-card { 
+    background: var(--cor-card); 
+    padding: 25px; 
+    border-radius: 13px; 
+    border: 1px solid var(--cor-separador); 
+    height: 100%; 
+    display: flex; 
+    flex-direction: column;
+    min-height: 480px; 
+}
+.projeto-imagem-wrapper { width: 100%; aspect-ratio: 16/9; overflow: hidden; border-radius: 8px; margin-bottom: 15px; }
+.projeto-imagem-wrapper img { width: 100%; height: 100%; object-fit: cover; }
+.projeto-card h4 { color: var(--cor-texto-forte); margin-bottom: 10px; }
+.projeto-card p { flex-grow: 1; margin-bottom: 25px; font-size: 1rem; }
+
+.github-btn { 
+    color: var(--cor-destaque); 
+    border: 1px solid var(--cor-destaque); 
+    padding: 10px 15px; 
+    border-radius: 5px; 
+    text-align: center; 
+    transition: 0.3s; 
+    font-weight: 600; 
+    display: block; /* Garante que o botão ocupe o espaço correto */
+}
 
 /* --- TECH STACK --- */
 .habilidades-lista {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); 
-    gap: 20px;
+    gap: 25px;
     list-style: none;
     max-width: 1200px;
     margin: 0 auto;
 }
 .habilidades-lista li {
     background: var(--cor-card);
-    padding: 25px;
+    padding: 30px 20px;
     border-radius: 12px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 10px;
+    gap: 15px;
+    transition: 0.3s;
     border: 1px solid rgba(255, 255, 255, 0.05);
 }
-.habilidades-lista i { font-size: 2.5em; color: var(--cor-destaque-secundario); }
+.habilidades-lista i { font-size: 3em; color: var(--cor-destaque-secundario); }
 
-/* --- RODAPÉ REESTRUTURADO --- */
-.rodape { padding: 60px 5% 30px; background: var(--cor-fundo-fim); border-top: 2px solid var(--cor-destaque); }
+/* --- RODAPÉ --- */
+.rodape { 
+    padding: 80px 5% 40px; 
+    background: var(--cor-fundo-fim); 
+    border-top: 2px solid var(--cor-destaque); 
+    overflow: hidden; 
+}
+
 .rodape-conteudo { 
     display: flex; 
-    flex-direction: row-reverse; /* Portal na Esquerda, Info na Direita */
+    flex-direction: row-reverse; 
     justify-content: space-between; 
     align-items: center; 
-    gap: 40px; 
+    flex-wrap: wrap; 
+    gap: 60px; 
     max-width: 1200px; 
-    margin: 0 auto 40px; 
+    margin: 0 auto 60px; 
 }
 
 .rodape-info { 
     flex: 1; 
+    min-width: 300px; /* Reduzi um pouco para caber melhor */
     display: flex; 
     flex-direction: column; 
     align-items: flex-end; 
     text-align: right; 
-    gap: 20px; 
+    gap: 30px; 
 }
 
 .rodape-contato-badges { 
     display: flex; 
     flex-wrap: wrap; 
-    gap: 12px; 
+    gap: 15px; 
     justify-content: flex-end; 
 }
 
 .badge-contato { 
     display: flex; 
     align-items: center; 
-    gap: 8px; 
+    gap: 10px; 
     background: var(--cor-card); 
-    padding: 10px 18px; 
+    padding: 12px 20px; 
     border-radius: 50px; 
     color: var(--cor-texto); 
     border: 1px solid var(--cor-separador); 
-    font-size: 0.9rem;
+    transition: 0.3s; 
     font-weight: 600; 
 }
 
-/* --- PORTAL RICK & MORTY --- */
+/* PORTAL */
+.rodape-portal-container { display: flex; justify-content: center; align-items: center; }
+.portal-wrapper { display: flex; flex-direction: column; align-items: center; gap: 20px; transition: 0.3s; }
+
 .portal { 
-    width: 250px; height: 250px; 
+    width: 250px; 
+    height: 250px; 
     position: relative; 
     display: flex; 
     justify-content: center; 
     align-items: center; 
-    filter: drop-shadow(0 0 20px var(--cor-destaque)); 
+    filter: drop-shadow(0 0 25px var(--cor-destaque)); 
 }
 .portal-efeito { 
     position: absolute; width: 100%; height: 100%; 
     background: radial-gradient(circle, var(--cor-destaque) 10%, #4ade80 40%, transparent 70%); 
     border-radius: 50% 40% 60% 30% / 40% 50% 40% 60%; 
-    animation: portal-girar 3s linear infinite; 
+    animation: portal-girar 3s linear infinite; opacity: 0.8; 
 }
 .portal-nucleo { 
-    position: absolute; width: 70%; height: 70%; 
+    position: absolute; width: 75%; height: 75%; 
     background: repeating-conic-gradient(from 0deg, #1a1a1a 0deg 20deg, var(--cor-destaque) 20deg 40deg); 
     border-radius: 50%; mix-blend-mode: overlay; 
     animation: portal-pulso 2s ease-in-out infinite; 
 }
+.portal-legenda { 
+    font-family: var(--fonte-titulos); color: var(--cor-destaque); font-size: 1.1rem; 
+    letter-spacing: 3px; font-weight: bold; text-shadow: 0 0 10px var(--cor-destaque); 
+}
 
-/* COPYRIGHT CENTRALIZADO */
 .rodape-copyright {
-    text-align: center;
-    width: 100%;
-    border-top: 1px solid var(--cor-separador);
-    padding-top: 30px;
-    font-size: 0.9rem;
+    text-align: center; width: 100%; border-top: 1px solid var(--cor-separador); 
+    padding-top: 40px; margin-top: 20px; 
 }
 
 /* --- ANIMAÇÕES --- */
 @keyframes portal-girar { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
-@keyframes portal-pulso { 0%, 100% { transform: scale(0.9); } 50% { transform: scale(1.1); } }
+@keyframes portal-pulso { 0%, 100% { transform: scale(0.95); } 50% { transform: scale(1.05); } }
 @keyframes floatAnimation { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-20px); } }
 @keyframes gradientAnimation { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
 
+.whatsapp-flutuante { position: fixed; bottom: 30px; right: 30px; background: var(--cor-destaque); width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 30px; color: white; z-index: 1000; box-shadow: 0 0 20px rgba(0,0,0,0.4); }
+
 /* ============================================================
-   AJUSTES PARA CELULAR (RESPONSIVIDADE) 
+   AQUI ESTÁ A CORREÇÃO MÁGICA PARA O SEU CELULAR 
    ============================================================ */
-@media (max-width: 768px) {
-    /* Header compacta */
-    .cabecalho { flex-direction: column; gap: 15px; padding: 15px; }
-    .cabecalho-menu { gap: 10px; flex-wrap: wrap; justify-content: center; }
-
-    /* Hero Section empilhada */
-    .conteudo-principal { flex-direction: column-reverse; text-align: center; padding: 30px 0; }
-    .conteudo-principal-escrito { align-items: center; }
-    .conteudo-principal-titulo { letter-spacing: 0.1em; }
-    .conteudo-principal-cta { align-self: center; }
-    .conteudo-principal-imagem img { width: 280px; }
-
-    /* Sobre Mim em uma coluna e fonte menor */
-    .conteudo-secundario-titulo { font-size: 2.2em; }
-    .sobre-texto { 
-        column-count: 1; 
-        font-size: 1.15rem; /* Fonte legível mas menor que no desktop */
-        line-height: 1.6;
-        text-align: left; /* Melhor leitura no celular */
-    }
-
-    /* Tech Stack */
-    .habilidades-lista { grid-template-columns: repeat(2, 1fr); gap: 15px; }
-
-    /* RODAPÉ CELULAR: Tudo centralizado e empilhado */
-    .rodape-conteudo { 
-        flex-direction: column; /* No celular o portal fica em cima e info embaixo */
-        text-align: center; 
-        gap: 50px;
+@media (max-width: 992px) {
+    /* 1. CORREÇÃO DO MENU QUE ESTAVA QUEBRANDO */
+    .cabecalho {
+        flex-direction: column; /* Coloca o logo em cima e o menu embaixo */
+        gap: 20px; /* Espaço entre logo e menu */
+        padding: 15px;
     }
     
+    .cabecalho-menu {
+        width: 100%;
+        justify-content: center; /* Centraliza os itens */
+        flex-wrap: wrap; /* Se não couber, quebra linha */
+        gap: 15px;
+    }
+
+    /* 2. CORREÇÃO DO "SOBRE MIM" ESPREMIDO */
+    .sobre-texto {
+        column-count: 1; /* Tira as colunas duplas */
+        font-size: 1.2rem; /* Diminui a fonte para caber */
+        text-align: left; /* Melhora a leitura no celular */
+        padding: 0 10px;
+    }
+    .conteudo-secundario-titulo { font-size: 2.2em; }
+
+    /* 3. HERO SECTION (INÍCIO) */
+    .conteudo-principal { 
+        flex-direction: column-reverse; 
+        text-align: center; 
+        padding: 40px 0;
+        min-height: auto;
+    }
+    .conteudo-principal-escrito { width: 100%; }
+    .conteudo-principal-cta { align-self: center; } /* Centraliza o botão */
+    
+    .conteudo-principal-titulo span {
+        font-size: 2.5rem; /* Diminui o título gigante */
+    }
+
+    /* 4. RODAPÉ */
+    .rodape-conteudo { 
+        flex-direction: column; /* Empilha tudo */
+        text-align: center; 
+        gap: 40px;
+    }
     .rodape-info { 
         align-items: center; 
         text-align: center; 
+        min-width: auto;
     }
-
-    .rodape-contato-badges { 
-        justify-content: center; 
-    }
-
+    .rodape-contato-badges { justify-content: center; }
+    
     .portal { 
-        width: 180px; /* Reduzi um pouco para não estourar a tela do celular */
-        height: 180px; 
+        width: 200px; /* Diminui um pouco o portal no celular */
+        height: 200px; 
     }
-
-    .badge-contato { width: 100%; justify-content: center; } /* Badges ocupam a largura toda no celular */
 }
-
-/* Botão WhatsApp */
 .whatsapp-flutuante { position: fixed; bottom: 20px; right: 20px; background: #25d366; width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 25px; color: white; z-index: 1000; }

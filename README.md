@@ -1,46 +1,48 @@
-# 💻 Software Engineering| Portfolio Laura Ataíde
-### [Acesse o projeto online aqui](https://lauraataide8.github.io)
+# 💻 Software Engineering Portfolio | Laura Ataíde
+### [🚀 Acesse o projeto online aqui](https://lauraataide8.github.io)
 
-Este repositório contém o código-fonte do meu portfólio profissional. O projeto foi desenvolvido sob a ótica da **Engenharia de Software**, priorizando performance, acessibilidade e design responsivo.
+Este repositório contém o código-fonte do meu portfólio profissional. O projeto foi desenvolvido sob a ótica da **Engenharia de Software**, priorizando performance, acessibilidade e uma arquitetura que reflete minha transição para o ecossistema **Java Backend**.
 
 ---
 
-### 🛠️ Tecnologias Utilizadas
+### 🛠️ Tecnologias & Core Stack
 <p align="left">
-  <a href="https://skillicons.dev">
-    <img src="https://skillicons.dev/icons?i=html,css,js,figma,git,vscode,github&theme=dark" />
-  </a>
+  <img src="https://skillicons.dev/icons?i=html,css,js,figma,git,vscode,github,java,spring,mysql&theme=dark" />
 </p>
 
+> **Nota:** Embora o portfólio seja uma interface Front-end (HTML/CSS/JS), ele serve como porta de entrada para meus projetos em **Java 17/21/25**, **Spring Boot** e **Bancos de Dados**.
+
 ---
 
-### 🚀 Diferenciais Técnicos
-* **Performance & SPA:** Estrutura otimizada para carregamento rápido.
-* **Mobile First:** Interface 100% responsiva para todos os dispositivos.
-* **SEO & Semântica:** HTML5 estruturado para melhor indexação e acessibilidade.
-* **UX Design:** Prototipagem de alta fidelidade realizada no Figma.
+### 🚀 Diferenciais Técnicos & Engenharia
+* **Performance & Semântica:** HTML5 estruturado com foco em SEO e carregamento otimizado.
+* **Mobile First & Responsive:** Interface adaptável a qualquer resolução, garantindo a melhor experiência de usuário (UX).
+* **Modernização de Dados:** O portfólio destaca meu trabalho atual em modernização de sistemas legados e inteligência de dados (ERP & BI).
+* **Design System:** Prototipagem de alta fidelidade realizada no **Figma** antes da implementação do código.
 
 ---
 
 ### 📂 Estrutura do Projeto
 ```bash
-├── assets/         # Recursos visuais (imagens e ícones)
-├── css/            # Estilização modularizada
-├── js/             # Lógica de interatividade
-└── index.html      # Estrutura principal da aplicação
+├── assets/         # Recursos visuais (imagens, ícones e currículo PDF)
+├── css/            # Estilização modularizada (Clean Code CSS)
+├── js/             # Lógica de interatividade e animações
+└── index.html      # Estrutura principal da aplicação (SPA Style)
 ```
 
 ⚙️ Execução Local
+1. Clone o repositório
+
 ```bash
-# 1. Clone o repositório
 git clone [https://github.com/lauraataide8/lauraataide8.github.io.git](https://github.com/lauraataide8/lauraataide8.github.io.git)
-
-# 2. Navegue até a pasta
-cd lauraataide8.github.io
-
-# 3. Abra o index.html no navegador ou use o Live Server no VS Code
 ```
 
-### 📫 Contato e Networking
+2. Navegue até a pasta
 
-<p align="left"><a href="https://www.linkedin.com/in/lauraataide91/" target="_blank"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=flat-square&logo=linkedin&logoColor=white" alt="LinkedIn"></a>&nbsp;<a href="mailto:lauramartinsataide@gmail.com"><img src="https://img.shields.io/badge/Email-D14836?style=flat-square&logo=gmail&logoColor=white" alt="Email"></a></p>
+```bash
+cd lauraataide8.github.io
+```
+
+3. Abra o index.html
+```bash
+Abra o arquivo no navegador ou utilize a extensão Live Server no VS Code para hot-reload.

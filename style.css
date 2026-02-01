@@ -1,309 +1,202 @@
-/* --- TEMA & VARIÁVEIS --- */
+/* --- VARIÁVEIS E TEMA --- */
 :root {
     --cor-fundo-inicio: #242038;
     --cor-fundo-fim: #0d0c1d;
     --cor-card: rgba(67, 62, 101, 0.4);
-    --cor-destaque: #97F126;
+    --cor-destaque: #97F126; /* Verde Neon */
     --cor-destaque-secundario: #82D8E3;
     --cor-texto: #CAC4EE;
-    --cor-texto-forte: #FFFFFF;
-    --cor-separador: rgba(151, 241, 38, 0.2);
     --fonte-titulos: 'Chakra Petch', sans-serif;
     --fonte-corpo: 'Poppins', sans-serif;
+    --max-width-site: 1200px;
 }
 
-/* --- RESET & GERAL --- */
+/* --- RESET & BLINDAGEM (CORREÇÃO DO SCROLL LATERAL) --- */
 * { margin: 0; padding: 0; box-sizing: border-box; text-decoration: none; }
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; overflow-x: hidden; /* Trava o HTML */ }
 
 body {
     font-family: var(--fonte-corpo);
     color: var(--cor-texto);
-    background: linear-gradient(68.15deg, var(--cor-fundo-inicio) 16.62%, var(--cor-fundo-fim) 85.61%);
-    /* ISSO AQUI É CRUCIAL PARA NÃO QUEBRAR NO CELULAR: */
+    background: linear-gradient(68deg, var(--cor-fundo-inicio), var(--cor-fundo-fim));
+    /* As linhas abaixo impedem que o site "dance" para os lados no iPhone */
     overflow-x: hidden; 
+    width: 100%;
+    max-width: 100vw;
+    position: relative;
+    -webkit-text-size-adjust: 100%;
+}
+
+/* --- CONTAINER GLOBAL --- */
+.container {
+    max-width: var(--max-width-site);
+    margin: 0 auto;
+    padding: 0 5%;
     width: 100%;
 }
 
 /* --- CABEÇALHO --- */
 .cabecalho {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px 5%;
-    position: sticky;
-    top: 0;
-    background: rgba(13, 12, 29, 0.95); /* Um pouco mais escuro para leitura */
-    backdrop-filter: blur(10px);
-    z-index: 1000;
-    width: 100%; /* Garante que não ultrapasse a tela */
+    background-color: #000000;
+    position: sticky; top: 0; z-index: 1000; width: 100%;
+    border-bottom: 1px solid rgba(151, 241, 38, 0.2);
 }
-.cabecalho-logo { font-family: var(--fonte-titulos); font-size: 1.6em; color: var(--cor-texto-forte); white-space: nowrap; }
+.cabecalho-container {
+    display: flex; justify-content: space-between; align-items: center; padding: 15px 0;
+}
+.cabecalho-logo {
+    font-family: var(--fonte-titulos); font-size: 24px; color: #fff; font-weight: 700;
+}
 .cabecalho-logo span { color: var(--cor-destaque); }
-.cabecalho-menu { display: flex; gap: 25px; }
-.cabecalho-menu-item { color: var(--cor-texto); font-weight: 600; transition: 0.3s; font-size: 1rem; }
-.cabecalho-menu-item:hover { color: var(--cor-destaque); text-shadow: 0 0 10px var(--cor-destaque); }
-
-/* --- HERO SECTION --- */
-.conteudo { padding: 0 5%; }
-.conteudo-principal { display: flex; align-items: center; justify-content: space-between; padding: 60px 0; min-height: 85vh; gap: 40px; }
-.conteudo-principal-escrito { display: flex; flex-direction: column; gap: 30px; flex: 1; }
-
-.conteudo-principal-titulo { 
-    font-family: var(--fonte-corpo); 
-    text-transform: uppercase; 
-    letter-spacing: .2em; 
-    border-top: 4px double var(--cor-separador);
-    border-bottom: 4px double var(--cor-separador);
-    padding: 1em 0;
+.cabecalho-menu { display: flex; gap: 30px; }
+.cabecalho-menu-item {
+    color: #fff; font-weight: 600; font-size: 16px; transition: 0.3s; position: relative;
 }
-.conteudo-principal-titulo span {
-    font-family: var(--fonte-titulos);
-    font-size: clamp(2.5em, 5vw, 4em); /* Ajuste dinâmico do tamanho */
-    display: block;
-    background: linear-gradient(-45deg, var(--cor-destaque), var(--cor-destaque-secundario), #a855f7, var(--cor-destaque));
-    background-size: 400% 400%;
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    animation: gradientAnimation 10s ease infinite;
+.cabecalho-menu-item:hover { color: var(--cor-destaque); text-shadow: 0 0 10px rgba(151, 241, 38, 0.8); }
+.cabecalho-menu-item::after {
+    content: ''; position: absolute; width: 0; height: 2px; bottom: -5px; left: 0;
+    background-color: var(--cor-destaque); transition: width 0.3s ease;
 }
+.cabecalho-menu-item:hover::after { width: 100%; }
 
-.cta-container { display: flex; flex-direction: column; gap: 40px; margin-top: 15px; }
-.conteudo-principal-cta {
-    align-self: flex-start;
-    background: var(--cor-destaque);
-    color: var(--cor-fundo-inicio);
-    padding: 14px 28px;
-    font-family: var(--fonte-titulos);
-    font-weight: 700;
-    border-radius: 5px;
-    transition: 0.3s;
+/* --- HERO SECTION (PC: FOTO 350px) --- */
+.conteudo-principal {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 80px 0; gap: 50px; width: 100%;
 }
-.conteudo-principal-cta:hover { transform: scale(1.05); box-shadow: 0 0 20px var(--cor-destaque); }
+.conteudo-principal-escrito { flex: 1; min-width: 0; }
+.conteudo-principal-titulo { font-family: var(--fonte-titulos); font-size: 3rem; color: #fff; line-height: 1.1; }
+.conteudo-principal-titulo span { font-size: clamp(3rem, 5vw, 4.5rem); color: var(--cor-destaque); display: block; }
+.conteudo-principal-subtitulo { font-size: clamp(1rem, 1.2vw, 1.2rem); margin: 20px 0; line-height: 1.6; color: #ddd; }
+.snake-container { margin-top: 25px; width: 100%; max-width: 600px; }
+.snake-container img { width: 100%; height: auto; display: block; }
 
-.snake-container { opacity: 0.8; margin-top: 10px; max-width: 100%; overflow: hidden; }
-
+.conteudo-principal-imagem {
+    /* TRAVADO EM 350px NO PC */
+    flex: 0 0 350px; 
+    width: 350px; display: flex; justify-content: center; align-items: center;
+}
 .conteudo-principal-imagem img {
-    max-width: 100%;
-    width: 400px;
-    border-radius: 40% 5% 40% 5%;
-    border: 3px solid var(--cor-destaque-secundario);
-    box-shadow: 0 0 30px rgba(130, 216, 227, 0.3);
-    animation: floatAnimation 6s ease-in-out infinite;
+    width: 100%; height: auto; border-radius: 30px;
+    border: 2px solid var(--cor-destaque); box-shadow: 0 0 25px rgba(151, 241, 38, 0.15);
+    animation: floatAnimation 6s ease-in-out infinite; object-fit: cover;
 }
 
-/* --- SOBRE MIM --- */
-.conteudo-secundario { padding: 80px 0; border-top: 1px solid var(--cor-separador); }
-.conteudo-secundario-titulo { font-family: var(--fonte-titulos); font-size: 3.0em; color: var(--cor-destaque); text-align: center; margin-bottom: 50px; }
-.sobre-texto { 
-    column-count: 2; 
-    column-gap: 50px; 
-    max-width: 1100px; 
-    margin: 0 auto; 
-    text-align: justify; 
-    line-height: 1.9; 
-    font-size: 1.60rem; 
+/* --- SEÇÕES GERAIS --- */
+.conteudo-secundario { padding: 60px 0; border-top: 1px solid rgba(151, 241, 38, 0.1); }
+.conteudo-secundario-titulo {
+    font-family: var(--fonte-titulos); font-size: 2.5rem;
+    color: var(--cor-destaque); text-align: center; margin-bottom: 40px;
 }
+.sobre-texto { column-count: 2; column-gap: 60px; line-height: 1.8; text-align: justify; font-size: 1.05rem; }
 
-/* --- PROJETOS --- */
-.projeto-card { 
-    background: var(--cor-card); 
-    padding: 25px; 
-    border-radius: 13px; 
-    border: 1px solid var(--cor-separador); 
-    height: 100%; 
-    display: flex; 
-    flex-direction: column;
-    min-height: 480px; 
+/* --- CARDS PROJETOS --- */
+.meu-swiper { 
+    padding: 20px 10px 60px 10px; 
+    /* No PC deixamos visível para a sombra sair, no Mobile vamos travar */
+    overflow: visible !important; 
 }
-.projeto-imagem-wrapper { width: 100%; aspect-ratio: 16/9; overflow: hidden; border-radius: 8px; margin-bottom: 15px; }
+.swiper-slide { height: auto; display: flex; }
+.projeto-card {
+    background: var(--cor-card); padding: 25px; border-radius: 15px;
+    border: 1px solid rgba(151, 241, 38, 0.1); width: 100%;
+    display: flex; flex-direction: column; justify-content: space-between;
+    transition: 0.4s; text-align: center;
+}
+.projeto-card:hover { transform: translateY(-5px); border-color: var(--cor-destaque); box-shadow: 0 5px 20px rgba(151, 241, 38, 0.2); z-index: 10; }
+.projeto-imagem-wrapper { height: 180px; overflow: hidden; border-radius: 10px; margin-bottom: 15px; flex-shrink: 0; }
 .projeto-imagem-wrapper img { width: 100%; height: 100%; object-fit: cover; }
-.projeto-card h4 { color: var(--cor-texto-forte); margin-bottom: 10px; }
-.projeto-card p { flex-grow: 1; margin-bottom: 25px; font-size: 1rem; }
-
-.github-btn { 
-    color: var(--cor-destaque); 
-    border: 1px solid var(--cor-destaque); 
-    padding: 10px 15px; 
-    border-radius: 5px; 
-    text-align: center; 
-    transition: 0.3s; 
-    font-weight: 600; 
-    display: block; /* Garante que o botão ocupe o espaço correto */
+.projeto-card h4 { margin-bottom: 10px; color: #fff; font-size: 1.2rem; }
+.projeto-card p { flex-grow: 1; margin-bottom: 20px; font-size: 0.95rem; color: #ccc; }
+.github-btn {
+    display: block; padding: 12px; background: var(--cor-destaque);
+    color: #000; font-weight: bold; border-radius: 6px; width: 100%; margin-top: auto; transition: 0.3s;
 }
+.github-btn:hover { background: #fff; box-shadow: 0 0 15px #fff; }
 
-/* --- TECH STACK --- */
-.habilidades-lista {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); 
-    gap: 25px;
-    list-style: none;
-    max-width: 1200px;
-    margin: 0 auto;
-}
+/* --- HABILIDADES --- */
+.habilidades-lista { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 20px; list-style: none; }
 .habilidades-lista li {
-    background: var(--cor-card);
-    padding: 30px 20px;
-    border-radius: 12px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 15px;
-    transition: 0.3s;
-    border: 1px solid rgba(255, 255, 255, 0.05);
+    background: var(--cor-card); padding: 20px; border-radius: 12px;
+    display: flex; flex-direction: column; align-items: center; gap: 10px;
+    border: 1px solid rgba(255,255,255,0.05); transition: 0.3s;
 }
-.habilidades-lista i { font-size: 3em; color: var(--cor-destaque-secundario); }
+.habilidades-lista li:hover { border-color: var(--cor-destaque-secundario); transform: translateY(-5px); }
+.habilidades-lista li i { font-size: 2.5rem; color: var(--cor-destaque-secundario); }
 
-/* --- RODAPÉ --- */
-.rodape { 
-    padding: 80px 5% 40px; 
-    background: var(--cor-fundo-fim); 
-    border-top: 2px solid var(--cor-destaque); 
-    overflow: hidden; 
+/* --- RODAPÉ (RESTAURADO) --- */
+.rodape {
+    background-color: #000000; padding: 30px 0; border-top: 2px solid var(--cor-destaque); width: 100%;
 }
+.rodape-container {
+    display: flex; justify-content: space-between; align-items: center; gap: 30px;
+}
+.rodape-info h2 { font-family: var(--fonte-titulos); color: #fff; font-size: 1.5rem; margin-bottom: 10px; }
+.rodape-contato-badges { display: flex; gap: 10px; flex-wrap: wrap; }
+.badge-contato {
+    display: flex; align-items: center; gap: 8px; background: #111;
+    padding: 8px 14px; border-radius: 30px; color: #fff;
+    border: 1px solid rgba(255,255,255,0.1); font-size: 13px; transition: 0.3s;
+}
+.badge-contato:hover { border-color: var(--cor-destaque); background: rgba(151, 241, 38, 0.1); color: var(--cor-destaque); }
 
-.rodape-conteudo { 
-    display: flex; 
-    flex-direction: row-reverse; 
-    justify-content: space-between; 
-    align-items: center; 
-    flex-wrap: wrap; 
-    gap: 60px; 
-    max-width: 1200px; 
-    margin: 0 auto 60px; 
+/* Portal Gun Card */
+.portal-gun-card {
+    position: relative; width: 240px; height: 120px;
+    background: #111; border: 2px solid #333; border-radius: 12px;
+    display: flex; justify-content: center; align-items: center;
+    overflow: hidden; transition: 0.5s; flex-shrink: 0;
 }
+.card-conteudo { z-index: 10; display: flex; flex-direction: column; align-items: center; gap: 5px; color: var(--cor-destaque); }
+.card-conteudo i { font-size: 2.2rem; }
+.status-texto { font-size: 0.6rem; letter-spacing: 2px; }
+.clique-texto { font-size: 0.7rem; color: #fff; font-weight: bold; opacity: 0; transition: 0.4s; }
+.fluido-container { position: absolute; bottom: 0; width: 100%; height: 0%; background: linear-gradient(transparent, rgba(151, 241, 38, 0.4)); transition: 0.5s; }
+.bolha { position: absolute; background: var(--cor-destaque); border-radius: 50%; bottom: -10px; opacity: 0; filter: blur(4px); }
+.portal-gun-card:hover { transform: scale(1.05); border-color: var(--cor-destaque); }
+.portal-gun-card:hover .clique-texto { opacity: 1; }
+.portal-gun-card:hover .fluido-container { height: 100%; }
+.portal-gun-card:hover .bolha { animation: bubbleRise 2s infinite ease-out; }
 
-.rodape-info { 
-    flex: 1; 
-    min-width: 300px; /* Reduzi um pouco para caber melhor */
-    display: flex; 
-    flex-direction: column; 
-    align-items: flex-end; 
-    text-align: right; 
-    gap: 30px; 
-}
+.rodape-copyright { text-align: center; margin-top: 20px; font-size: 12px; opacity: 0.5; color: #fff; }
 
-.rodape-contato-badges { 
-    display: flex; 
-    flex-wrap: wrap; 
-    gap: 15px; 
-    justify-content: flex-end; 
-}
-
-.badge-contato { 
-    display: flex; 
-    align-items: center; 
-    gap: 10px; 
-    background: var(--cor-card); 
-    padding: 12px 20px; 
-    border-radius: 50px; 
-    color: var(--cor-texto); 
-    border: 1px solid var(--cor-separador); 
-    transition: 0.3s; 
-    font-weight: 600; 
-}
-
-/* PORTAL */
-.rodape-portal-container { display: flex; justify-content: center; align-items: center; }
-.portal-wrapper { display: flex; flex-direction: column; align-items: center; gap: 20px; transition: 0.3s; }
-
-.portal { 
-    width: 250px; 
-    height: 250px; 
-    position: relative; 
-    display: flex; 
-    justify-content: center; 
-    align-items: center; 
-    filter: drop-shadow(0 0 25px var(--cor-destaque)); 
-}
-.portal-efeito { 
-    position: absolute; width: 100%; height: 100%; 
-    background: radial-gradient(circle, var(--cor-destaque) 10%, #4ade80 40%, transparent 70%); 
-    border-radius: 50% 40% 60% 30% / 40% 50% 40% 60%; 
-    animation: portal-girar 3s linear infinite; opacity: 0.8; 
-}
-.portal-nucleo { 
-    position: absolute; width: 75%; height: 75%; 
-    background: repeating-conic-gradient(from 0deg, #1a1a1a 0deg 20deg, var(--cor-destaque) 20deg 40deg); 
-    border-radius: 50%; mix-blend-mode: overlay; 
-    animation: portal-pulso 2s ease-in-out infinite; 
-}
-.portal-legenda { 
-    font-family: var(--fonte-titulos); color: var(--cor-destaque); font-size: 1.1rem; 
-    letter-spacing: 3px; font-weight: bold; text-shadow: 0 0 10px var(--cor-destaque); 
-}
-
-.rodape-copyright {
-    text-align: center; width: 100%; border-top: 1px solid var(--cor-separador); 
-    padding-top: 40px; margin-top: 20px; 
-}
-
-/* --- ANIMAÇÕES --- */
-@keyframes portal-girar { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
-@keyframes portal-pulso { 0%, 100% { transform: scale(0.95); } 50% { transform: scale(1.05); } }
+/* --- ANIMAÇÕES E EXTRAS --- */
+@keyframes bubbleRise { 0% { transform: translateY(0); opacity: 0.6; } 100% { transform: translateY(-130px); opacity: 0; } }
 @keyframes floatAnimation { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-20px); } }
-@keyframes gradientAnimation { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
+.whatsapp-flutuante {
+    position: fixed; bottom: 20px; right: 20px; background: #25d366;
+    width: 55px; height: 55px; border-radius: 50%; display: flex; align-items: center; justify-content: center;
+    font-size: 30px; color: white; z-index: 2000; box-shadow: 0 4px 10px rgba(0,0,0,0.3); transition: 0.3s;
+}
+.whatsapp-flutuante:hover { transform: scale(1.1); }
 
-.whatsapp-flutuante { position: fixed; bottom: 30px; right: 30px; background: var(--cor-destaque); width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 30px; color: white; z-index: 1000; box-shadow: 0 0 20px rgba(0,0,0,0.4); }
-
-/* ============================================================
-   AQUI ESTÁ A CORREÇÃO MÁGICA PARA O SEU CELULAR 
-   ============================================================ */
+/* --- RESPONSIVIDADE (MOBILE E TABLET) --- */
 @media (max-width: 992px) {
-    /* 1. CORREÇÃO DO MENU QUE ESTAVA QUEBRANDO */
-    .cabecalho {
-        flex-direction: column; /* Coloca o logo em cima e o menu embaixo */
-        gap: 20px; /* Espaço entre logo e menu */
-        padding: 15px;
-    }
+    /* Layout */
+    .conteudo-principal { flex-direction: column-reverse; text-align: center; padding: 40px 0; gap: 30px; }
     
-    .cabecalho-menu {
-        width: 100%;
-        justify-content: center; /* Centraliza os itens */
-        flex-wrap: wrap; /* Se não couber, quebra linha */
-        gap: 15px;
-    }
-
-    /* 2. CORREÇÃO DO "SOBRE MIM" ESPREMIDO */
-    .sobre-texto {
-        column-count: 1; /* Tira as colunas duplas */
-        font-size: 1.2rem; /* Diminui a fonte para caber */
-        text-align: left; /* Melhora a leitura no celular */
-        padding: 0 10px;
-    }
-    .conteudo-secundario-titulo { font-size: 2.2em; }
-
-    /* 3. HERO SECTION (INÍCIO) */
-    .conteudo-principal { 
-        flex-direction: column-reverse; 
-        text-align: center; 
-        padding: 40px 0;
-        min-height: auto;
-    }
+    /* Correção da Imagem no Mobile (destrava o 350px) */
+    .conteudo-principal-imagem { flex: 0 0 auto; width: 100%; max-width: 280px; }
     .conteudo-principal-escrito { width: 100%; }
-    .conteudo-principal-cta { align-self: center; } /* Centraliza o botão */
     
-    .conteudo-principal-titulo span {
-        font-size: 2.5rem; /* Diminui o título gigante */
-    }
-
-    /* 4. RODAPÉ */
-    .rodape-conteudo { 
-        flex-direction: column; /* Empilha tudo */
-        text-align: center; 
-        gap: 40px;
-    }
-    .rodape-info { 
-        align-items: center; 
-        text-align: center; 
-        min-width: auto;
-    }
-    .rodape-contato-badges { justify-content: center; }
+    .snake-container { display: flex; justify-content: center; }
+    .conteudo-principal-titulo { font-size: 2rem; }
+    .sobre-texto { column-count: 1; text-align: left; }
     
-    .portal { 
-        width: 200px; /* Diminui um pouco o portal no celular */
-        height: 200px; 
+    /* BLINDAGEM DO SWIPER NO MOBILE */
+    /* Isso impede que o carrossel estoure a largura da tela no celular */
+    .meu-swiper {
+        overflow: hidden !important; 
+        width: 100%;
+        padding-left: 0;
+        padding-right: 0;
     }
 }
-.whatsapp-flutuante { position: fixed; bottom: 20px; right: 20px; background: #25d366; width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 25px; color: white; z-index: 1000; }
+
+@media (max-width: 768px) {
+    .cabecalho-container { flex-direction: column; gap: 15px; }
+    .cabecalho-menu { flex-wrap: wrap; justify-content: center; gap: 15px; }
+    .rodape-container { flex-direction: column; text-align: center; gap: 25px; }
+    .rodape-contato-badges { justify-content: center; }
+    .portal-gun-card { width: 100%; max-width: 260px; }
+}
